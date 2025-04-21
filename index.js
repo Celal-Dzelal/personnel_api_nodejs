@@ -37,6 +37,8 @@ app.use(require("./src/middlewares/queryHandler"));
 
 /*//! ------------------------------ DB Connection ----------------------------- */
 
+require("./src/configs/dbConnection");
+
 /*//! --------------------------------- Routes --------------------------------- */
 
 //* Create main route (It has to be top)
@@ -48,6 +50,8 @@ app.all("/", (req, res) => {
 });
 
 /*//! ------------------------------ ErrorHandler ------------------------------ */
+
+app.use(require("./src/middlewares/errorHandler"));
 
 /*//! ------------------------------- Run Server ------------------------------- */
 
