@@ -72,4 +72,14 @@ const PersonnelSchema = new mongoose.Schema(
   { collection: "personnels", timestamps: true }
 );
 
+// PersonnelSchema.set("toJson", {
+//   //* Customize Json behavior of schema
+//   transform: (doc, ret) => {
+//     //* transform: When a every docs transform to a Json, this function will called. doc: mongoose document(original version). req: The state to be converted to JSON (raw object).
+//     ret.id = ret._id; //* Copies the _id field in Mongoose to id which is more readable for the frontend.
+//     delete ret._v; //* Deletes the `__v` (version) field that Mongoose automatically adds.
+//     ret.createdAt = ret.createdAt.toLocaleDateString("tr-tr"); //* Displays the createdAt date in Turkish format with toLocaleDateString("tr-tr").
+//   },
+// });
+
 module.exports = mongoose.model("Personnel", PersonnelSchema);
