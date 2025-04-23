@@ -57,6 +57,10 @@ app.use("/departments", require("./src/routes/departments"));
 
 app.use("/personnels", require("./src/routes/personnel"));
 
+//? Token Route
+
+app.use("/tokens", require("./src/routes/token"));
+
 //? Not Found
 
 app.use("*", (req, res) => {
