@@ -53,6 +53,10 @@ app.all("/", (req, res) => {
 
 app.use("/departments", require("./src/routes/departments"));
 
+//? Personnel Route
+
+app.use("/personnels", require("./src/routes/personnel"));
+
 /*//! ------------------------------ ErrorHandler ------------------------------ */
 
 app.use(require("./src/middlewares/errorHandler"));
