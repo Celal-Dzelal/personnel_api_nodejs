@@ -41,13 +41,17 @@ require("./src/configs/dbConnection");
 
 /*//! --------------------------------- Routes --------------------------------- */
 
-//* Create main route (It has to be top)
+//* Create main route (It has to be top route)
 
 app.all("/", (req, res) => {
   res.send({
     message: "Welcome to Personnel Api NodeJs Created by Dzelal",
   });
 });
+
+//? Department Route
+
+app.use("/departments", require("./src/routes/departments"));
 
 /*//! ------------------------------ ErrorHandler ------------------------------ */
 

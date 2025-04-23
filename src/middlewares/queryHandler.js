@@ -1,6 +1,6 @@
 "use strict";
 
-module.exports = async (req, res, next) => {
+module.exports = (req, res, next) => {
   const filter = req.query?.filter || {}; //* If there is a filter in the query parameters which inside of req, use it, otherwise assign as an empty object
 
   const search = req.query?.search || {}; //* If there is a search in the query parameters which comes from URL, use it, otherwise use an empty object.
@@ -18,7 +18,7 @@ module.exports = async (req, res, next) => {
   let skip = Number(req.query?.skip); //* Number of records to skip
   skip = skip > 0 ? skip : (page - 1) * limit;
 
-  res.getModelList = async function (model, populate = null) {
+  res.getModelList = async function (Model, populate = null) {
     //* LISTING FUNCTION: A function to fetch data with filter and pages according to Model
     return await Model.find({ ...filter, ...search })
       .sort(sort)
@@ -29,7 +29,7 @@ module.exports = async (req, res, next) => {
 
   res.getModelListDetails = async (Model) => {
     //* IDENTIFY QUERY: It starts the query to calculate details
-    const data = Model.find({ ...filter, ...search });
+    const data = await Model.find({ ...filter, ...search });
 
     const details = {
       //* Pagination and filtering information
