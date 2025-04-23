@@ -26,8 +26,11 @@ module.exports = {
     });
   },
   deleteToken: async (req, res) => {
-    const result = await Token.deleteById(req.params.id);
-    res.status(result.deletedCount ? 204 : 404).send({
+    const result = await Token.findByIdAndDelete(req.params.id);
+    if (result) {
+      return res.status(204).end();
+    }
+    return res.status(404).send({
       error: true,
       message: "Data is not found or already deleted",
     });

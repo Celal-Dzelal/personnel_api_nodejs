@@ -26,7 +26,7 @@ module.exports = {
     });
   },
   update: async (req, res) => {
-    const result = await Department.updateById(req.params.id, req.body);
+    const result = await Department.findByIdAndUpdate(req.params.id, req.body);
     res.status(202).send({
       error: false,
       result,
@@ -34,7 +34,7 @@ module.exports = {
     });
   },
   delete: async (req, res) => {
-    const result = await Department.deleteById(req.params.id);
+    const result = await Department.findByIdAndDelete(req.params.id);
     res.status(result.deletedCount ? 204 : 404).send({
       error: true,
       message: "Data is not found or already deleted",

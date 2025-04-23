@@ -26,7 +26,7 @@ module.exports = {
     });
   },
   update: async (req, res) => {
-    const result = await Personnel.updateById(req.params.id, req.body, {
+    const result = await Personnel.findByIdAndUpdate(req.params.id, req.body, {
       runValidators: true,
       new: true,
     });
@@ -36,7 +36,7 @@ module.exports = {
     });
   },
   delete: async (req, res) => {
-    const result = await Personnel.deleteById(req.params.id);
+    const result = await Personnel.findByIdAndDelete(req.params.id);
     res.status(result.deletedCount ? 204 : 404).send({
       error: true,
       message: "Data is not found or already deleted",
