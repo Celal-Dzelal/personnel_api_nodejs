@@ -1,14 +1,14 @@
 "use strict";
 
 module.exports = async function () {
-  return null;
+  // return null;
 
   const mongoose = require("mongoose");
   await mongoose.connection.dropDatabase();
   console.log("Database and all Data are DELETED");
 
-  const Department = require(""); //* Not ready yet
-  const Personnel = require(""); //* Not ready yet
+  const Department = require("../models/department");
+  const Personnel = require("../models/personnel");
 
   const departments = [
     "FullStack Department",

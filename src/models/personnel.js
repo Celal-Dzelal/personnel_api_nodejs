@@ -10,7 +10,7 @@ const PersonnelSchema = new mongoose.Schema(
       ref: "Department",
       required: true,
     },
-    userName: {
+    username: {
       type: String,
       trim: true,
       required: true,
