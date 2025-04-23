@@ -61,9 +61,13 @@ app.use("/personnels", require("./src/routes/personnel"));
 
 app.use("/tokens", require("./src/routes/token"));
 
+//? Auth Route
+
+app.use("/auth", require("./src/routes/auth"));
+
 //? Not Found
 
-app.use("*", (req, res) => {
+app.use(/^\/.*$/, (req, res) => {
   res.status(404).send({
     error: true,
     message: "This route is not found",
