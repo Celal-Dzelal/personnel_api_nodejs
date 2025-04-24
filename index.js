@@ -39,6 +39,10 @@ app.use(require("./src/middlewares/queryHandler"));
 
 require("./src/configs/dbConnection");
 
+/*//! ----------------------------- Authentication ----------------------------- */
+
+app.use(require("./src/middlewares/authentication"));
+
 /*//! --------------------------------- Routes --------------------------------- */
 
 //* Create main route (It has to be top route)
