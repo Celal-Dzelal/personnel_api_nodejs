@@ -1,14 +1,15 @@
 {
   "name": "personel-api",
   "version": "1.0.0",
-  "description": "",
+  "description": "Personnel Management System API Service v1 by D.Z.E.L.",
   "main": "index.js",
+  "contact": "binaycelalselim@gmail.com",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon index.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Dzelal",
   "license": "ISC",
   "dependencies": {
     "cookie-session": "^2.1.0",
@@ -16,6 +17,7 @@
     "express": "^5.1.0",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.13.2",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "swagger-autogen": "^2.23.7"
   }
 }
