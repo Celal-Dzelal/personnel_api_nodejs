@@ -22,4 +22,6 @@ router
   .patch(isAdminOrLead, department.update)
   .delete(isAdmin, department.delete);
 
+router.get("/:id/personnels", department.personnels);
+
 module.exports = router;

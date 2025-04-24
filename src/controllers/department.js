@@ -1,6 +1,7 @@
 "use strict";
 
 const Department = require("../models/department");
+const Personnel = require("../models/personnel");
 
 module.exports = {
   list: async (req, res) => {
@@ -38,6 +39,15 @@ module.exports = {
     res.status(result.deletedCount ? 204 : 404).send({
       error: true,
       message: "Data is not found or already deleted",
+    });
+  },
+  personnels: async (req, res) => {
+    const { id: departmentId } = req.params;
+    const result = await res.getModelList(Personnel, { departmentId });
+    res.status(200).send({
+      error: false,
+      details: await res.getModelListDetails(Personnel),
+      result,
     });
   },
 };

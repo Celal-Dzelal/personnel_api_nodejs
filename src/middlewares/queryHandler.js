@@ -18,9 +18,17 @@ module.exports = (req, res, next) => {
   let skip = Number(req.query?.skip); //* Number of records to skip
   skip = skip > 0 ? skip : (page - 1) * limit;
 
-  res.getModelList = async function (Model, populate = null) {
+  res.getModelList = async function (
+    Model,
+    customFilter = {},
+    populate = null
+  ) {
     //* LISTING FUNCTION: A function to fetch data with filter and pages according to Model
-    return await Model.find({ ...filter, ...search })
+    return await Model.find({
+      ...filter,
+      ...search,
+      ...customFilter,
+    })
       .sort(sort)
       .limit(limit)
       .skip(skip)
