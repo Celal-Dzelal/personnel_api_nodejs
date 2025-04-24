@@ -7,6 +7,7 @@
 // $ npm i express dotenv mongoose
 // $ npm i cookie-session
 // $ npm i jsonwebtoken
+// $ npm i morgan
 
 /*//! ------------------------------ Requirements ------------------------------ */
 
@@ -20,7 +21,7 @@ const PORT = process.env.PORT || 8000; //* Create a variable named PORT and assi
 
 app.use(express.json()); //* If the body of the incoming request is in JSON format, automatically parse it and place it in the req.body object.
 
-/*//! ----------------------------- Session-Cookies ---------------------------- */
+//? Session-Cookies
 
 const session = require("cookie-session"); //* Include cookie-session library in the project for cookie-based session management
 
@@ -31,17 +32,21 @@ app.use(
   })
 );
 
-/*//! ----------------------------- Query Handler ----------------------------- */
+//? Query Handler
 
 app.use(require("./src/middlewares/queryHandler"));
 
-/*//! ------------------------------ DB Connection ----------------------------- */
+//? DB Connection
 
 require("./src/configs/dbConnection");
 
-/*//! ----------------------------- Authentication ----------------------------- */
+//? Authentication
 
 app.use(require("./src/middlewares/authentication"));
+
+//? Morgan - Logger
+
+app.use(require("./src/middlewares/logger"));
 
 /*//! --------------------------------- Routes --------------------------------- */
 
