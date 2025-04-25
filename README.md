@@ -1,10 +1,12 @@
-# Personnel API  
+# Personnel API
+
 > 🔐 Token-based Internal Personnel Management System  
-> Built with 🧠 Node.js, Express & MongoDB  
+> Built with 🧠 Node.js, Express & MongoDB
 
 ---
 
-## 🚀 Project Description  
+## 🚀 Project Description
+
 The **PERSONNEL API** is a secure and minimal RESTful API designed to manage personnel and departments within an organization. It features authentication using JWT tokens, detailed CRUD operations, and API documentation via Swagger.
 
 > ⚙️ Powered by: Node.js | Express | MongoDB  
@@ -15,22 +17,24 @@ The **PERSONNEL API** is a secure and minimal RESTful API designed to manage per
 
 ## 📦 Features
 
-- ✅ Token Authentication via JWT  
-- 🏢 Full CRUD for Departments  
-- 👤 Full CRUD for Personnel  
-- 🛡️ Role-based Access Control (Admin, Lead, Staff)  
-- 📎 Personnel-Department Relationships  
-- 📜 Automated Swagger Documentation  
-- 📊 Exposed Relational Data Endpoints  
+- ✅ Token Authentication via JWT
+- 🏢 Full CRUD for Departments
+- 👤 Full CRUD for Personnel
+- 🛡️ Role-based Access Control (Admin, Lead, Staff)
+- 📎 Personnel-Department Relationships
+- 📜 Automated Swagger Documentation
+- 📊 Exposed Relational Data Endpoints
 
 ---
 
-## 🔑 Authentication
+## 🔑 AUTHENTICATION PROTOCOL
 
-All endpoints (except `/auth/login`) require authentication via JWT. Include the token in the request header like so:
+All secured endpoints require a valid access token.
+
+⛓️ Include your token in the header as follows:
 
 ```http
-Authorization: Bearer <your_token>
+Authorization: Token your_token_key
 ```
 
 To obtain a token, send a POST request to /auth/login with the following payload:

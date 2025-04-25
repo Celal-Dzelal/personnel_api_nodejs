@@ -6,6 +6,20 @@ const Token = require("../models/token");
 
 module.exports = {
   login: async (req, res) => {
+    /* 
+            #swagger.tags = ['Authentication']
+            #swagger.summary = 'Login'
+            #swagger.description = 'Login with email/username and password'
+            #swagger.parameters['body'] = {
+                in:'body',
+                required:true,
+                schema:{
+                    username:'admin',
+                    password:'1234'
+                }
+            }
+        */
+
     const { username, email, password } = req.body;
     const identifier = username || email;
     if (!identifier || !password) {
@@ -40,6 +54,12 @@ module.exports = {
     });
   },
   logout: async (req, res) => {
+    /*
+   #swagger.tags = ["Authentication"]
+   #swagger.summary = "Logout"
+   #swagger.description = "Token Deleted"
+   }
+   */
     const token = req.user
       ? await Token.deleteOne({ userId: req.user._id })
       : null;
